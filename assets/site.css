@@ -1,0 +1,280 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("manrope.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark light;
+  --bg: #0e1210;
+  --text: #f4f1ea;
+  --muted: #a3aba4;
+  --accent: #efba7e;
+  --rule: rgb(244 241 234 / 0.1);
+  --card: rgb(244 241 234 / 0.045);
+  --card-rim: rgb(244 241 234 / 0.12);
+  --orb-ember: rgb(240 168 96 / 0.16);
+  --orb-sage: rgb(95 168 143 / 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f3ec;
+    --text: #171b19;
+    --muted: #535b55;
+    --accent: #8a4f17;
+    --rule: rgb(23 27 25 / 0.1);
+    --card: rgb(255 255 255 / 0.6);
+    --card-rim: rgb(23 27 25 / 0.1);
+    --orb-ember: rgb(240 168 96 / 0.22);
+    --orb-sage: rgb(95 168 143 / 0.16);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* Ember and sage orbs from the app icon, fixed behind the text. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40rem 32rem at 85% -8%, var(--orb-ember), transparent 70%),
+    radial-gradient(36rem 30rem at -10% 105%, var(--orb-sage), transparent 70%);
+}
+
+.page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0 1px var(--card-rim), 0 6px 18px rgb(208 139 72 / 0.18);
+}
+
+.brand-name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-by {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.3;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 2.75rem 0 0.5rem;
+  font-size: clamp(2.125rem, 6vw, 2.75rem);
+  font-weight: 750;
+}
+
+h2 {
+  margin: 2.75rem 0 0.75rem;
+  font-size: 1.3125rem;
+  font-weight: 700;
+  scroll-margin-top: 1.5rem;
+}
+
+h3 {
+  margin: 1.5rem 0 0.25rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+dl {
+  margin: 0 0 1rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0.125rem 0 1rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.lede {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.card {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem 0.5rem;
+  border: 1px solid var(--card-rim);
+  border-radius: 1.25rem;
+  background: var(--card);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 12px 32px rgb(0 0 0 / 0.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.toc {
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-block: 1px solid var(--rule);
+  font-size: 0.9375rem;
+}
+
+.toc h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  columns: 2 14rem;
+  column-gap: 2rem;
+}
+
+.toc li {
+  margin: 0 0 0.25rem;
+  break-inside: avoid;
+}
+
+.toc li::marker {
+  color: var(--muted);
+}
+
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0 0 0.25rem;
+}
+
+@media print {
+  :root {
+    --bg: #fff;
+    --text: #000;
+    --muted: #444;
+    --accent: #000;
+    --card: transparent;
+    --card-rim: #999;
+  }
+
+  body::before,
+  .toc {
+    display: none;
+  }
+
+  .card {
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+}
