@@ -1,23 +1,10 @@
-# Alarm Syncr site
+# Alarm Syncr site (moved)
 
-Public pages for Alarm Syncr by Kheloton LLC, served by GitHub Pages from the `main` branch root.
+Alarm Syncr's pages now live on the Kheloton website. This GitHub Pages site only redirects the old addresses, which shipped app builds and Play Console still link to, so keep both files.
 
-| Page | URL |
+| Old page | Redirects to |
 |---|---|
-| Home | https://pranavmdesai.github.io/alarm-syncr-site/ |
-| Privacy Policy | https://pranavmdesai.github.io/alarm-syncr-site/privacy/ |
+| https://pranavmdesai.github.io/alarm-syncr-site/ | https://kheloton.com/alarm-syncr/ |
+| https://pranavmdesai.github.io/alarm-syncr-site/privacy/ | https://kheloton.com/alarm-syncr/privacy/ |
 
-The privacy policy URL is entered in Play Console and linked from inside the app, so keep the `privacy/` path stable.
-
-## Editing the policy
-
-1. Edit `privacy/index.html`.
-2. Change the "Effective" date near the top.
-3. If the change affects what the app collects or shares, update the Data safety form in Play Console before releasing that app version.
-
-## Files
-
-- `assets/site.css`: shared styles (dark and light themes, print styles).
-- `assets/icon.svg`: the app icon, copied from `brand/icon.svg` in the app repo without its monochrome layer.
-- `assets/manrope.woff2`: Manrope, subset to Latin and served from this site so pages load nothing from third parties. License: `assets/manrope-OFL.txt`.
-- `.nojekyll`: serve files as-is, without Jekyll.
+Each page uses an instant meta refresh plus a canonical link, with a visible link as a fallback. Edit the privacy policy in the Kheloton website repo, in `src/content/policies/alarm-syncr.md`.
